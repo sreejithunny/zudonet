@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Step-by-Step Guide: How to Create Your Google Sheet & Connect to Website</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --secondary: #0ea5e9;
+      --emerald: #10b981;
+      --bg: #f8faff;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.65;
+      padding: 40px 20px;
+    }
+    .guide-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 48px;
+      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08);
+    }
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+      color: #1e1b4b;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ecfdf5;
+      color: #047857;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .step-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
+      position: relative;
+      border-left: 5px solid var(--primary);
+    }
+    .step-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #1e1b4b;
+    }
+    .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+    .headers-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.9rem;
+    }
+    .headers-table th, .headers-table td {
+      border: 1px solid #cbd5e1;
+      padding: 10px 14px;
+      text-align: left;
+    }
+    .headers-table th {
+      background: #f1f5f9;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .code-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.88rem;
+      overflow-x: auto;
+      margin: 14px 0;
+      position: relative;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .tip-box {
+      background: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      padding: 16px;
+      border-radius: 8px;
+      margin: 16px 0;
+      font-size: 0.92rem;
+      color: #78350f;
+    }
+    .success-box {
+      background: #ecfdf5;
+      border-left: 4px solid #10b981;
+      padding: 16px;
+      border-radius: 8px;
+      margin: 16px 0;
+      font-size: 0.92rem;
+      color: #065f46;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="guide-container">
+    <div class="badge">
+      <i class="fa-solid fa-file-excel"></i> Official Google Sheets Integration Guide
+    </div>
+
+    <h1>How To Create Your Google Sheet Backend</h1>
+    <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 24px;">
+      Follow these simple steps to link your Google account to your website. Every time a client submits the contact form, their inquiry is instantly added to your spreadsheet.
+    </p>
+
+    <!-- STEP 1 -->
+    <div class="step-card">
+      <div class="step-title">
+        <span class="step-num">1</span>
+        <span>Create a New Google Spreadsheet</span>
+      </div>
+      <p>1. Open <a href="https://sheets.google.com" target="_blank" style="color: var(--primary); font-weight: 700;">sheets.google.com</a> in your browser.</p>
+      <p>2. Click on the <strong>+ Blank spreadsheet</strong> button.</p>
+      <p>3. At the top left, name the spreadsheet: <strong>Zudonet Client Inquiries</strong>.</p>
+      <p>4. Make sure the tab at the very bottom is named: <strong>Sheet1</strong> (this is default).</p>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step-card">
+      <div class="step-title">
+        <span class="step-num">2</span>
+        <span>Set Column Headers in Row 1</span>
+      </div>
+      <p>In the first row of your spreadsheet (Row 1), type these exact column headers across columns <strong>A</strong> to <strong>H</strong>:</p>
+
+      <table class="headers-table">
+        <thead>
+          <tr>
+            <th>Col A</th>
+            <th>Col B</th>
+            <th>Col C</th>
+            <th>Col D</th>
+            <th>Col E</th>
+            <th>Col F</th>
+            <th>Col G</th>
+            <th>Col H</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>timestamp</td>
+            <td>ticketId</td>
+            <td>name</td>
+            <td>email</td>
+            <td>contact_number</td>
+            <td>service</td>
+            <td>message</td>
+            <td>terms</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="tip-box">
+        <strong>Important:</strong> Keep all header words in lowercase as shown above (<code>name</code>, <code>email</code>, <code>contact_number</code>, etc.) so the script matches them automatically.
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step-card">
+      <div class="step-title">
+        <span class="step-num">3</span>
+        <span>Open Apps Script in Google Sheets</span>
+      </div>
+      <p>1. In the top Google Sheets menu, click: <strong>Extensions &gt; Apps Script</strong>.</p>
+      <p>2. A new tab will open showing the script editor.</p>
+      <p>3. Delete any default code like <code>function myFunction() { }</code> so the editor is completely empty.</p>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step-card">
+      <div class="step-title">
+        <span class="step-num">4</span>
+        <span>Paste the Backend Script</span>
+      </div>
+      <p>Copy the script below and paste it into the Apps Script editor:</p>
+
+      <div class="code-box">
+        <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptCode').innerText); this.textContent='Copied!';">Copy Script</button>
+        <pre id="scriptCode">var sheetName = 'Sheet1';
+var scriptProp = PropertiesService.getScriptProperties();
+
+function initialSetup() {
+  var activeSpreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  scriptProp.setProperty('key', activeSpreadsheet.getId());
+  Logger.log('Connected to Sheet ID: ' + activeSpreadsheet.getId());
+}
+
+function intialSetup() {
+  initialSetup();
+}
+
+function doPost(e) {
+  var lock = LockService.getScriptLock();
+  lock.tryLock(10000);
+
+  try {
+    var doc = SpreadsheetApp.openById(scriptProp.getProperty('key'));
+    var sheet = doc.getSheetByName(sheetName);
+
+    var headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+    var nextRow = sheet.getLastRow() + 1;
+
+    var data = e.parameter || {};
+    if (e.postData && e.postData.contents) {
+      try {
+        var parsed = JSON.parse(e.postData.contents);
+        for (var k in parsed) {
+          if (!data[k]) data[k] = parsed[k];
+        }
+      } catch (err) {}
+    }
+
+    var newRow = headers.map(function(header) {
+      if (header === 'timestamp') {
+        return new Date();
+      }
+      return data[header] !== undefined ? data[header] : '';
+    });
+
+    sheet.getRange(nextRow, 1, 1, newRow.length).setValues([newRow]);
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'success', 'row': nextRow }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch (err) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'error', 'error': err.toString() }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } finally {
+    lock.releaseLock();
+  }
+}</pre>
+      </div>
+      <p>Click the <strong>Save icon (💾)</strong> at the top of Apps Script.</p>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step-card">
+      <div class="step-title">
+        <span class="step-num">5</span>
+        <span>Run initialSetup Once</span>
+      </div>
+      <p>1. In the toolbar at the top of Apps Script, find the dropdown next to "Debug" and select: <strong>initialSetup</strong>.</p>
+      <p>2. Click the <strong>Run</strong> button (▶️).</p>
+      <p>3. If Google shows <em>"Authorization required"</em>:</p>
+      <ul style="margin: 8px 0 8px 24px; line-height: 1.8;">
+        <li>Click <strong>Review Permissions</strong>.</li>
+        <li>Choose your Google account.</li>
+        <li>Click <strong>Advanced</strong> (bottom left of modal).</li>
+        <li>Click <strong>Go to Untitled project (unsafe)</strong>.</li>
+        <li>Click <strong>Allow</strong>.</li>
+      </ul>
+      <div class="success-box">
+        Once authorized, the script automatically links your spreadsheet key forever!
+      </div>
+    </div>
+
+    <!-- STEP 6 -->
+    <div class="step-card">
+      <div class="step-title">
+        <span class="step-num">6</span>
+        <span>Deploy as a Public Web App</span>
+      </div>
+      <p>1. At the top right of Apps Script, click the blue <strong>Deploy</strong> button &gt; <strong>New deployment</strong>.</p>
+      <p>2. Click the gear icon (⚙️) next to "Select type" and choose <strong>Web app</strong>.</p>
+      <p>3. Configure these exact settings:</p>
+      <ul style="margin: 8px 0 8px 24px; line-height: 1.8;">
+        <li><strong>Description:</strong> <code>Zudonet Form API</code></li>
+        <li><strong>Execute as:</strong> <code>Me (your Google email)</code></li>
+        <li><strong>Who has access:</strong> <code style="color: #dc2626; font-weight: 800; background: #fee2e2; padding: 2px 8px; border-radius: 4px;">Anyone</code></li>
+      </ul>
+      <div class="tip-box">
+        <strong>Critical Note:</strong> "Who has access" <strong>MUST</strong> be set to <strong>Anyone</strong> so prospective clients can submit inquiries without being forced to sign into a Google account.
+      </div>
+      <p>4. Click <strong>Deploy</strong>.</p>
+      <p>5. Copy the <strong>Web App URL</strong> (it starts with <code>https://script.google.com/macros/s/.../exec</code>).</p>
+    </div>
+
+    <!-- STEP 7 -->
+    <div class="step-card" style="border-left-color: var(--emerald);">
+      <div class="step-title">
+        <span class="step-num" style="background: var(--emerald);">7</span>
+        <span>Add Your Web App URL to the Website</span>
+      </div>
+      <p>Open <code>zudonet.js</code> on your Desktop, find line 14:</p>
+      <div class="code-box">
+        <pre>googleAppsScriptUrl: 'PASTE_YOUR_COPIED_URL_HERE',</pre>
+      </div>
+      <p>Save <code>zudonet.js</code>. Your website is now 100% connected to your personal Google Sheet!</p>
+    </div>
+
+    <div style="text-align: center; margin-top: 36px;">
+      <a href="appointment.html" style="background: var(--primary); color: #ffffff; padding: 14px 32px; border-radius: 9999px; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 8px;">
+        <i class="fa-solid fa-paper-plane"></i> Test Contact Form on Website
+      </a>
+    </div>
+
+  </div>
+
+</body>
+</html>

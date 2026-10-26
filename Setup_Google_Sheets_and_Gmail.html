@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Setup Guide: Connect Google Sheets & Gmail Privately</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card: #111827;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --accent-blue: #6366f1;
+      --accent-cyan: #06b6d4;
+      --accent-emerald: #10b981;
+      --accent-rose: #f43f5e;
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      background: linear-gradient(135deg, #6366f1, #06b6d4, #10b981);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+    .alert-box {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 30px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+    .alert-box i { font-size: 1.5rem; color: var(--accent-emerald); }
+    .warning-box {
+      background: rgba(244, 63, 94, 0.1);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 30px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+    .warning-box i { font-size: 1.5rem; color: var(--accent-rose); }
+    .step-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      background: var(--accent-blue);
+      color: white;
+      border-radius: 50%;
+      font-weight: 700;
+      margin-right: 12px;
+    }
+    h3 {
+      display: inline-flex;
+      align-items: center;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+    ol, ul {
+      margin-left: 20px;
+      margin-top: 10px;
+      color: var(--text-muted);
+    }
+    li { margin-bottom: 8px; }
+    code, pre {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: #38bdf8;
+      font-family: monospace;
+    }
+    code { padding: 2px 8px; }
+    pre {
+      padding: 16px;
+      overflow-x: auto;
+      margin: 14px 0;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #6366f1, #06b6d4);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 9999px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      margin-top: 10px;
+    }
+    .btn:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>100% Private Google Sheet & Gmail Integration</h1>
+      <p style="color: var(--text-muted);">How to receive client leads in your Gmail & Google Sheet with ZERO personal data exposed on your website.</p>
+    </div>
+
+    <!-- Security Warning -->
+    <div class="warning-box">
+      <i class="fa-solid fa-shield-cat"></i>
+      <div>
+        <strong>CRITICAL SECURITY NOTICE:</strong><br>
+        Please <strong>change your Gmail password immediately</strong>. Never paste personal passwords in chat windows or into website code! You do NOT need to give your password to anyone or to your website to receive leads.
+      </div>
+    </div>
+
+    <div class="alert-box">
+      <i class="fa-solid fa-lock"></i>
+      <div>
+        <strong>Your Privacy is Guaranteed:</strong><br>
+        Using Google Apps Script, Google's secure servers act as your middleman. Website visitors submit their inquiry, Google records it into your Google Sheet, and emails it to <code>sreejithu@gmail.com</code>. <strong>Your email, phone, and password are NEVER visible on the website!</strong>
+      </div>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="step-card">
+      <span class="step-number">1</span>
+      <h3>Create a New Google Sheet</h3>
+      <p style="color: var(--text-muted);">Open Google Sheets while logged into your Google account:</p>
+      <ul>
+        <li>Go to: <a href="https://sheets.new" target="_blank" style="color: #38bdf8; text-decoration: underline;">https://sheets.new</a></li>
+        <li>Rename the spreadsheet to: <strong>Website Client Inquiries</strong></li>
+      </ul>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step-card">
+      <span class="step-number">2</span>
+      <h3>Open Apps Script</h3>
+      <ul>
+        <li>In your Google Sheet top menu, click: <strong>Extensions</strong> &rarr; <strong>Apps Script</strong>.</li>
+        <li>A code editor tab will open. Delete any code already inside <code>Code.gs</code>.</li>
+      </ul>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step-card">
+      <span class="step-number">3</span>
+      <h3>Copy & Paste the Script</h3>
+      <p style="color: var(--text-muted);">Open the file already saved on your Desktop called <code>Google_Apps_Script_Backend.js</code> or copy the code below:</p>
+      
+      <pre>
+function doPost(e) {
+  try {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    if (sheet.getLastRow() === 0) {
+      sheet.appendRow(["Timestamp", "Client Name", "Client Email", "Client Phone", "Service Requested", "Project Scope", "Source"]);
+      sheet.getRange(1, 1, 1, 7).setFontWeight("bold").setBackground("#1f2937").setFontColor("#ffffff");
+    }
+    var data = (e.postData && e.postData.contents) ? JSON.parse(e.postData.contents) : (e.parameter || {});
+    var timestamp = new Date();
+    sheet.appendRow([timestamp, data.name || "N/A", data.email || "N/A", data.phone || "N/A", data.service || "N/A", data.message || "N/A", data.source || "Website"]);
+
+    MailApp.sendEmail({
+      to: "sreejithu@gmail.com",
+      subject: "🚀 New Client Lead: " + (data.name || "Website Visitor") + " (" + (data.service || "General") + ")",
+      body: "Hello Sreejith,\n\nYou have received a new client inquiry on your website!\n\n" +
+            "• Name: " + data.name + "\n" +
+            "• Email: " + data.email + "\n" +
+            "• Phone: " + data.phone + "\n" +
+            "• Service: " + data.service + "\n" +
+            "• Requirements:\n" + data.message + "\n\n" +
+            "Recorded in your Google Sheet automatically."
+    });
+
+    return ContentService.createTextOutput(JSON.stringify({ status: "success" })).setMimeType(ContentService.MimeType.JSON);
+  } catch (error) {
+    return ContentService.createTextOutput(JSON.stringify({ status: "error", error: error.toString() })).setMimeType(ContentService.MimeType.JSON);
+  }
+}
+      </pre>
+
+      <p style="color: var(--text-muted); margin-top: 10px;">Click the <strong>Save (disk) icon</strong> at the top of Apps Script.</p>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step-card">
+      <span class="step-number">4</span>
+      <h3>Deploy as Web App</h3>
+      <ul>
+        <li>Click the blue <strong>Deploy</strong> button (top right) &rarr; <strong>New deployment</strong>.</li>
+        <li>Click the gear icon next to <em>Select type</em> &rarr; choose <strong>Web app</strong>.</li>
+        <li>Set <strong>Execute as</strong> to: <strong>Me</strong>.</li>
+        <li>Set <strong>Who has access</strong> to: <strong>Anyone</strong> (this allows your website to securely send the form).</li>
+        <li>Click <strong>Deploy</strong> &rarr; Click <strong>Authorize access</strong> &rarr; Choose your Google account &rarr; Click <strong>Allow</strong>.</li>
+        <li>Copy the <strong>Web app URL</strong> (it starts with <code>https://script.google.com/macros/s/...</code>).</li>
+      </ul>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step-card">
+      <span class="step-number">5</span>
+      <h3>Connect to Home.html</h3>
+      <p style="color: var(--text-muted);">Open <code>Home.html</code> in Notepad or any editor, scroll to line ~2160, and paste your URL into:</p>
+      <pre>this.googleAppsScriptEndpoint = "YOUR_WEB_APP_URL_HERE";</pre>
+      <p style="color: var(--text-muted); margin-top: 10px;">That's it! Now whenever someone fills out the Contact Form or uses the WhatsApp chat screen on your website:</p>
+      <ul>
+        <li>The client's details will appear in your Google Sheet immediately.</li>
+        <li>You will get an email notification in your Gmail with all their project details.</li>
+        <li><strong>No visitor will ever see your personal email, phone number, or credentials!</strong></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

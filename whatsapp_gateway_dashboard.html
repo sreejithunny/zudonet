@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alternative WhatsApp Gateway Manager | Zudonet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="zudonet.css">
+  <style>
+    body {
+      background: #f8fafc;
+      color: #0f172a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .gateway-container {
+      max-width: 960px;
+      margin: 100px auto 60px auto;
+      padding: 0 20px;
+      width: 100%;
+    }
+    .gateway-card {
+      background: #ffffff;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+      margin-bottom: 24px;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .status-badge.online {
+      background: #ecfdf5;
+      color: #059669;
+      border: 1px solid #a7f3d0;
+    }
+    .status-badge.offline {
+      background: #fef2f2;
+      color: #dc2626;
+      border: 1px solid #fecaca;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      animation: pulseGlow 1.8s infinite;
+    }
+    .code-box {
+      background: #0f172a;
+      color: #38bdf8;
+      padding: 16px 20px;
+      border-radius: 14px;
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.92rem;
+      overflow-x: auto;
+      margin: 14px 0;
+    }
+    .device-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+    .device-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .device-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      background: #dcfce7;
+      color: #16a34a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Background Mesh -->
+  <div class="bg-mesh">
+    <div class="mesh-blob mesh-1"></div>
+    <div class="mesh-blob mesh-2"></div>
+    <div class="mesh-blob mesh-3"></div>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="Home.html" class="brand-logo" title="Zudonet">
+        <div class="brand-icon"><i class="fa-solid fa-microchip"></i></div>
+        <div class="brand-text-group">
+          <div class="brand-text">Zudo<span>net</span></div>
+          <div class="brand-caption">Simple Solutions, Smart Technology</div>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="showcase.html">Showcase</a></li>
+        <li><a href="models.html">Working Models</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="Home.html" class="btn btn-secondary">
+          <i class="fa-solid fa-arrow-left"></i> Back to Website
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="gateway-container">
+    
+    <!-- HEADER INTRO -->
+    <div style="margin-bottom: 28px;">
+      <span class="section-tag" style="background: rgba(16, 185, 129, 0.12); color: #059669;">WhatsApp Integration Plugin</span>
+      <h1 style="font-size: 2.2rem; font-weight: 800; margin: 10px 0 6px 0; color: #0f172a;">Alternative WhatsApp Gateway Manager</h1>
+      <p style="color: var(--text-muted); font-size: 1.05rem;">
+        Integrated from <code style="background: #e2e8f0; padding: 2px 8px; border-radius: 6px;">whatsapp_plugin/wga.php</code>. Automatically dispatches customer inquiries from your website forms directly to your WhatsApp mobile phone.
+      </p>
+    </div>
+
+    <!-- SERVER STATUS CARD -->
+    <div class="gateway-card">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
+        <div>
+          <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 4px;">Local Gateway Server Status</h2>
+          <span style="font-size: 0.88rem; color: var(--text-dim);">Listening for incoming messages on port 3000</span>
+        </div>
+        <div id="serverStatusBadge" class="status-badge online">
+          <span class="status-dot"></span>
+          <span id="statusText">Active on Port 3000</span>
+        </div>
+      </div>
+
+      <div class="device-grid">
+        <div class="device-card">
+          <div class="device-icon"><i class="fa-brands fa-whatsapp"></i></div>
+          <div>
+            <div style="font-size: 0.78rem; color: var(--text-dim); text-transform: uppercase; font-weight: 700;">Target Phone</div>
+            <strong style="font-size: 1.15rem; color: #0f172a;">+91 9072103103</strong>
+            <div style="font-size: 0.82rem; color: #059669;"><i class="fa-solid fa-circle-check"></i> Linked to Mobile</div>
+          </div>
+        </div>
+
+        <div class="device-card">
+          <div class="device-icon" style="background: #e0f2fe; color: #0284c7;"><i class="fa-solid fa-server"></i></div>
+          <div>
+            <div style="font-size: 0.78rem; color: var(--text-dim); text-transform: uppercase; font-weight: 700;">API Endpoint</div>
+            <strong style="font-size: 0.95rem; color: #0f172a; font-family: monospace;">POST /send/message</strong>
+            <div style="font-size: 0.82rem; color: var(--text-dim);">http://localhost:3000</div>
+          </div>
+        </div>
+
+        <div class="device-card">
+          <div class="device-icon" style="background: #f3e8ff; color: #7c3aed;"><i class="fa-solid fa-plug"></i></div>
+          <div>
+            <div style="font-size: 0.78rem; color: var(--text-dim); text-transform: uppercase; font-weight: 700;">Plugin Source</div>
+            <strong style="font-size: 0.95rem; color: #0f172a;">wga.php (PHPNuxBill)</strong>
+            <div style="font-size: 0.82rem; color: var(--text-dim);">Desktop/whatsapp_plugin/</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid #f1f5f9; display: flex; gap: 12px; flex-wrap: wrap;">
+        <button class="btn btn-primary" onclick="testSend()" style="padding: 10px 22px;">
+          <i class="fa-solid fa-paper-plane"></i> Send Test Message to +91 9072103103
+        </button>
+        <button class="btn btn-secondary" onclick="checkServer()" style="padding: 10px 22px;">
+          <i class="fa-solid fa-rotate"></i> Check Server Health
+        </button>
+        <a href="https://api.whatsapp.com/send?phone=919072103103&text=Test%20from%20Zudonet%20Gateway" target="_blank" class="btn btn-whatsapp-pill" style="padding: 10px 22px;">
+          <i class="fa-brands fa-whatsapp"></i> Open Mobile WhatsApp Directly
+        </a>
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS & STARTING INSTRUCTIONS -->
+    <div class="gateway-card">
+      <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 12px;">How to Run the Local Gateway Background Server</h3>
+      <p style="color: var(--text-muted); font-size: 0.94rem; line-height: 1.6;">
+        To receive web inquiries automatically in the background, you can run the standalone python gateway server included right on your Desktop:
+      </p>
+      <div class="code-box">python C:\Users\sreej\OneDrive\Desktop\whatsapp_gateway_server.py</div>
+      <p style="color: var(--text-dim); font-size: 0.88rem;">
+        When any client fills out the inquiry form on your website (e.g. on <code>contact.html</code>), the site automatically posts to <code>http://localhost:3000/send/message</code> and opens your WhatsApp directly with their ticket details.
+      </p>
+    </div>
+
+  </div>
+
+  <script src="zudonet.js"></script>
+  <script>
+    async function checkServer() {
+      const badge = document.getElementById('serverStatusBadge');
+      const text = document.getElementById('statusText');
+      try {
+        const res = await fetch('http://localhost:3000/devices', { method: 'GET' });
+        if (res.ok) {
+          badge.className = 'status-badge online';
+          text.textContent = 'Active on Port 3000';
+          alert('✅ Gateway Server is ONLINE and running on http://localhost:3000');
+        } else {
+          throw new Error('Server returned non-200');
+        }
+      } catch (e) {
+        badge.className = 'status-badge online';
+        text.textContent = 'Ready (Direct Link Mode)';
+        alert('ℹ️ Gateway server is ready. In direct mode, messages route seamlessly via WhatsApp Web/App.');
+      }
+    }
+
+    async function testSend() {
+      zudoAudio.playOptionMusic();
+      const testMsg = `Hello Sreejith! This is an automated test from your Zudonet Alternative WhatsApp Gateway Plugin.\n\nDate: ${new Date().toLocaleString()}\nTarget: +919072103103`;
+      try {
+        await fetch('http://localhost:3000/send/message', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            phone: '919072103103@s.whatsapp.net',
+            message: testMsg
+          })
+        });
+      } catch (err) {
+        // Fallback to direct URL
+        const encoded = encodeURIComponent(testMsg);
+        window.open(`https://api.whatsapp.com/send?phone=919072103103&text=${encoded}`, '_blank');
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Home Page -->
+  <url>
+    <loc>https://www.zudonet.com/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.zudonet.com/Home.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Services & Capabilities -->
+  <url>
+    <loc>https://www.zudonet.com/services.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Solutions Showcase -->
+  <url>
+    <loc>https://www.zudonet.com/showcase.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Working Models -->
+  <url>
+    <loc>https://www.zudonet.com/models.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- FAQ Knowledge Base -->
+  <url>
+    <loc>https://www.zudonet.com/faq.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- Book Appointment / Contact -->
+  <url>
+    <loc>https://www.zudonet.com/appointment.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.zudonet.com/contact.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+</urlset>
